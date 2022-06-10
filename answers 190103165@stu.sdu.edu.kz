@@ -1,0 +1,20 @@
+#1
+SELECT CONCAT(trip.plane, ' ', company.name) AS "Company_name", CONCAT(passenger.id, ' ', passenger.name) AS "Passenger_name"
+FROM company
+JOIN trip
+ON company.id=trip.company
+JOIN passenger
+ON passenger.name=passenger.name
+WHERE plane='Boeing' AND company.name='air_France';
+
+#2
+SELECT trip, passenger
+FROM pass_in_trip
+ORDER BY passenger DESC;
+
+#3
+SELECT SUBSTR (name, 1, 1) first_char, COUNT (*)
+FROM passenger
+GROUP BY SUBSTR (name, 1, 1)
+HAVING COUNT (*) > 1
+ORDER BY 2 DESC;
